@@ -11,7 +11,7 @@ use web_sys::{
 };
 
 #[derive(Debug)]
-enum RawRenderingContext {
+pub enum RawRenderingContext {
     WebGl1(WebGlRenderingContext),
     WebGl2(WebGl2RenderingContext),
 }
@@ -65,7 +65,7 @@ fn tracked_resource<K: slotmap::Key, V>() -> TrackedResource<K, V> {
 
 #[derive(Debug)]
 pub struct Context {
-    raw: RawRenderingContext,
+    pub raw: RawRenderingContext,
     extensions: Extensions,
     version: Version,
     supported_extensions: HashSet<String>,
